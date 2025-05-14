@@ -1,7 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Verification Complete</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background: #89CFF0; /* Light Blue Background */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			font-family: 'Arial', sans-serif;
+			overflow: hidden;
+		}
+
+		.message {
+			font-size: 3rem;
+			font-weight: bold;
+			color: #191970; /* Midnight Blue */
+			text-align: center;
+			z-index: 1;
+		}
+
+		.shark {
+			position: absolute;
+			bottom: 10%;
+			left: -30%;
+			width: 200px;
+			animation: swim 6s linear infinite;
+			opacity: 0.9;
+		}
+
+		@keyframes swim {
+			0% {
+				left: -30%;
+				transform: scaleX(1) rotate(0deg);
+			}
+			50% {
+				left: 50%;
+			}
+			100% {
+				left: 110%;
+			}
+		}
+	</style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+	<div class="message">✅ Verification Complete!</div>
+
+	<!-- Shark Image -->
+	<img src="https://i.ibb.co/5MxYvQG/shark.png" alt="Shark" class="shark">
+
 </body>
 </html>
