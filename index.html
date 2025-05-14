@@ -4,56 +4,143 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Verification Complete</title>
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 	<style>
 		body {
 			margin: 0;
 			padding: 0;
-			background: #89CFF0; /* Light Blue Background */
+			background: linear-gradient(to bottom, #89CFF0, #e0f7ff);
+			height: 100vh;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			height: 100vh;
-			font-family: 'Arial', sans-serif;
 			overflow: hidden;
+			font-family: 'Cinzel', serif;
+			position: relative;
 		}
 
 		.message {
-			font-size: 3rem;
-			font-weight: bold;
-			color: #191970; /* Midnight Blue */
 			text-align: center;
-			z-index: 1;
+			color: #0B3D91;
+			opacity: 0;
+			animation: fadeIn 2s ease-in forwards;
+			z-index: 2;
 		}
 
-		.shark {
+		.message h1 {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+		}
+
+		.message p {
+			font-size: 1.2rem;
+			color: #003366;
+		}
+
+		.bubble {
 			position: absolute;
-			bottom: 10%;
-			left: -30%;
-			width: 200px;
-			animation: swim 6s linear infinite;
-			opacity: 0.9;
+			bottom: -50px;
+			width: 80px;
+			height: 80px;
+			background: rgba(255, 255, 255, 0.7); /* Slightly white bubble with transparency */
+			border-radius: 50%;
+			animation: rise 8s infinite ease-in;
+			filter: blur(1px);
+			box-shadow: inset -10px -10px 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3); /* White reflection effect */
 		}
 
-		@keyframes swim {
-			0% {
-				left: -30%;
-				transform: scaleX(1) rotate(0deg);
-			}
-			50% {
-				left: 50%;
-			}
-			100% {
-				left: 110%;
-			}
+		.bubble:nth-child(1) { 
+			left: 10%; 
+			width: 100px; 
+			height: 100px;
+			animation-duration: 10s;
+			animation-delay: 0s; 
+		}
+		.bubble:nth-child(2) { 
+			left: 20%; 
+			width: 90px; 
+			height: 90px;
+			animation-duration: 9s; 
+			animation-delay: 1s; 
+		}
+		.bubble:nth-child(3) { 
+			left: 30%; 
+			width: 85px; 
+			height: 85px;
+			animation-duration: 11s;
+			animation-delay: 2s; 
+		}
+		.bubble:nth-child(4) { 
+			left: 40%; 
+			width: 110px; 
+			height: 110px;
+			animation-duration: 10s;
+			animation-delay: 3s; 
+		}
+		.bubble:nth-child(5) { 
+			left: 50%; 
+			width: 95px; 
+			height: 95px;
+			animation-duration: 8s;
+			animation-delay: 1.5s; 
+		}
+		.bubble:nth-child(6) { 
+			left: 60%; 
+			width: 105px; 
+			height: 105px;
+			animation-duration: 12s;
+			animation-delay: 2s; 
+		}
+		.bubble:nth-child(7) { 
+			left: 70%; 
+			width: 90px; 
+			height: 90px;
+			animation-duration: 9.5s;
+			animation-delay: 3.5s; 
+		}
+		.bubble:nth-child(8) { 
+			left: 80%; 
+			width: 100px; 
+			height: 100px;
+			animation-duration: 11s;
+			animation-delay: 4s; 
+		}
+		.bubble:nth-child(9) { 
+			left: 90%; 
+			width: 85px; 
+			height: 85px;
+			animation-duration: 10s;
+			animation-delay: 5s; 
+		}
+
+		@keyframes fadeIn {
+			0% { opacity: 0; transform: translateY(20px); }
+			100% { opacity: 1; transform: translateY(0); }
+		}
+
+		@keyframes rise {
+			0% { bottom: -50px; transform: translateX(0) scale(1); opacity: 1; }
+			100% { bottom: 100%; transform: translateX(-20px) scale(1.5); opacity: 0; }
 		}
 	</style>
 </head>
 <body>
 
-	<div class="message">✅ Verification Complete!</div>
+	<div class="message">
+		<h1>🦈Verification Complete!🦈</h1>
+		<p>You can log-in now in the game with this email.</p>
+	</div>
 
-	<!-- Shark Image -->
-	<img src="https://i.ibb.co/5MxYvQG/shark.png" alt="Shark" class="shark">
+	<!-- Bubbles -->
+	<div class="bubble"></div>
+	<div class="bubble"></div>
+	<div class="bubble"></div>
+	<div class="bubble"></div>
+	<div class="bubble"></div>
+	<div class="bubble"></div>
+	<div class="bubble"></div>
+	<div class="bubble"></div>
+	<div class="bubble"></div>
 
 </body>
 </html>
