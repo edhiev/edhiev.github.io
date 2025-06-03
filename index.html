@@ -24,26 +24,27 @@
 		}
 
 		.message {
-			opacity: 0;
-			animation: fadeIn 2s ease-in forwards;
-			z-index: 2;
-			padding: 1rem;
-			max-width: 95%;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-		.message h1 {
-			font-size: clamp(1.5rem, 6vw, 3rem);
-			margin-bottom: 1rem;
-			white-space: nowrap;
-		}
+.message h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* responsive font */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    margin: 0 auto 1rem;
+}
 
-		.message p {
-			font-size: clamp(0.8rem, 3vw, 1.2rem);
-			color: #003366;
-		}
+.message p {
+    font-size: clamp(0.8rem, 3.5vw, 1.2rem); /* responsive font */
+    padding: 0 1rem;
+    word-wrap: break-word;
+    white-space: normal;
+}
 
 		.bubble {
 			position: absolute;
