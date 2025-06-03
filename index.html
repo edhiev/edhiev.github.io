@@ -6,111 +6,61 @@
 	<title>Verification Complete</title>
 	<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 	<style>
+		* {
+			box-sizing: border-box;
+		}
 		body {
 			margin: 0;
 			padding: 0;
 			background: linear-gradient(to bottom, #89CFF0, #e0f7ff);
-			height: 100vh;
+			min-height: 100vh;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			overflow: hidden;
 			font-family: 'Cinzel', serif;
+			overflow: hidden;
 			position: relative;
+			text-align: center;
 		}
 
 		.message {
-			text-align: center;
-			color: #0B3D91;
 			opacity: 0;
 			animation: fadeIn 2s ease-in forwards;
 			z-index: 2;
+			padding: 1rem;
+			max-width: 95%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		.message h1 {
-			font-size: 3rem;
+			font-size: clamp(1.5rem, 6vw, 3rem);
 			margin-bottom: 1rem;
+			white-space: nowrap;
 		}
 
 		.message p {
-			font-size: 1.2rem;
+			font-size: clamp(0.8rem, 3vw, 1.2rem);
 			color: #003366;
 		}
 
 		.bubble {
 			position: absolute;
 			bottom: -50px;
-			width: 80px;
-			height: 80px;
-			background: rgba(255, 255, 255, 0.7); /* Slightly white bubble with transparency */
+			background: rgba(255, 255, 255, 0.7);
 			border-radius: 50%;
 			animation: rise 8s infinite ease-in;
 			filter: blur(1px);
-			box-shadow: inset -10px -10px 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3); /* White reflection effect */
+			box-shadow: inset -10px -10px 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
 		}
 
-		.bubble:nth-child(1) { 
-			left: 10%; 
-			width: 100px; 
-			height: 100px;
-			animation-duration: 10s;
-			animation-delay: 0s; 
-		}
-		.bubble:nth-child(2) { 
-			left: 20%; 
-			width: 90px; 
-			height: 90px;
-			animation-duration: 9s; 
-			animation-delay: 1s; 
-		}
-		.bubble:nth-child(3) { 
-			left: 30%; 
-			width: 85px; 
-			height: 85px;
-			animation-duration: 11s;
-			animation-delay: 2s; 
-		}
-		.bubble:nth-child(4) { 
-			left: 40%; 
-			width: 110px; 
-			height: 110px;
-			animation-duration: 10s;
-			animation-delay: 3s; 
-		}
-		.bubble:nth-child(5) { 
-			left: 50%; 
-			width: 95px; 
-			height: 95px;
-			animation-duration: 8s;
-			animation-delay: 1.5s; 
-		}
-		.bubble:nth-child(6) { 
-			left: 60%; 
-			width: 105px; 
-			height: 105px;
-			animation-duration: 12s;
-			animation-delay: 2s; 
-		}
-		.bubble:nth-child(7) { 
-			left: 70%; 
-			width: 90px; 
-			height: 90px;
-			animation-duration: 9.5s;
-			animation-delay: 3.5s; 
-		}
-		.bubble:nth-child(8) { 
-			left: 80%; 
-			width: 100px; 
-			height: 100px;
-			animation-duration: 11s;
-			animation-delay: 4s; 
-		}
-		.bubble:nth-child(9) { 
-			left: 90%; 
-			width: 85px; 
-			height: 85px;
-			animation-duration: 10s;
-			animation-delay: 5s; 
+		.bubble:nth-child(n+2):nth-child(-n+10) {
+			animation-delay: calc((var(--i) - 1) * 1s);
+			left: calc(var(--i) * 10%);
+			width: calc(10vw + var(--i)*1px);
+			height: calc(10vw + var(--i)*1px);
+			animation-duration: calc(8s + var(--i)*0.5s);
 		}
 
 		@keyframes fadeIn {
@@ -131,16 +81,14 @@
 		<p>You can log-in now in the game with this email.</p>
 	</div>
 
-	<!-- Bubbles -->
-	<div class="bubble"></div>
-	<div class="bubble"></div>
-	<div class="bubble"></div>
-	<div class="bubble"></div>
-	<div class="bubble"></div>
-	<div class="bubble"></div>
-	<div class="bubble"></div>
-	<div class="bubble"></div>
-	<div class="bubble"></div>
+	<script>
+		for (let i = 1; i <= 9; i++) {
+			const bubble = document.createElement('div');
+			bubble.className = 'bubble';
+			bubble.style.setProperty('--i', i);
+			document.body.appendChild(bubble);
+		}
+	</script>
 
 </body>
 </html>
